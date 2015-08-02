@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<head>
+<link rel="stylesheet" href="<?php echo HMTPLPATH; ?>/css/bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo HMTPLPATH; ?>/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css"href="<?php echo HMTPLPATH; ?>/css/base.css">
+<link rel="stylesheet" type="text/css" href="<?php echo HMTPLPATH; ?>/css/icon-font/iconfont.css">
+<script src="<?php echo HMTPLPATH; ?>/js/base.js" type="text/javascript"></script>
+<script src="<?php echo HMTPLPATH; ?>/js/jquery-1.11.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo HMTPLPATH; ?>/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo HMTPLPATH; ?>/js/unslider.js"></script>
+</head>
+<body>
+	<div class="nav navbar-fixed-top">
+		<div class="logo" onclick="window.location = '<?php echo site_url('Q_home/index') ?>'">0358.la</div>
+		<div class="search" onclick="window.location = '<?php echo site_url('Q_home/index') ?>'">
+			<i class="search-bar-icon iconfont">&#xe605;</i>
+			输入商家/类型
+		</div>
+		<div class="my-btn" onclick="alert('敬请期待！')">
+			<ul>
+				<li class="iconfont">&#x3434;</li>
+				<li>我的</li>
+			</ul>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div id="top" class="top"></div>
+		<div class="banner">
+			<ul>
+				<?php foreach($advert as $v)	:	 ?>
+		    	   <li style="background-image:url('<?php echo base_url('data/uploads').'/'.$v['img']; ?>');"
+		    	   	onclick="window.location='<?php echo $v['a']; ?>'"></li>
+				<?php endforeach; ?>
+		    </ul>
+		</div>
+
+		<div class="catagory">
+
+		<?php foreach($type as $v)	:	 ?>
+			<ul onclick="window.location = '<?php echo site_url('Q_type/index').'/'.$v['tid'].'?tname='.$v['name'].'　'; ?>'">
+				<li class="iconfont circle food">&#xe651;</li>
+				<li><?php echo $v['name']; ?></li>
+			</ul>
+		<?php endforeach; ?>
+			<ul onclick="alert('敬请期待！')">
+				<li class="iconfont circle more"></li>
+				<li>更多</li>
+			</ul>
+		</div>
+
+		<div class="title">
+			热门活动
+		</div>
+
+
+		<?php foreach($shop as $v)	:	 ?>
+		<div class="list" onclick="window.location = '<?php echo site_url('Q_shop/index').'/'.$v['sid']; ?>'">
+			<div class="pic pull-left">
+				<img src="<?php echo base_url('data/uploads').'/'.$v['img']; ?>" style="width:100px;height:100px">
+			</div>
+			<div class="content pull-left">
+				<ul>
+					<li><?php echo $v['truename'] ?><li>
+					<li><?php echo $v['address'] ?><li>
+					<li><?php echo $v['edittime'] ?><li>
+					<li><i class="iconfont">&#xe629;</i><?php echo $v['hot'] ?><li>
+				</ul>
+			</div>
+		</div>
+		<?php endforeach; ?>
+
+	</div>
+	<div class="gotop iconfont"><a href="#top">&#xe63a;</a></div>
+	<div class="copyrights">
+		&copy;2015,0358.la,All rights Reserved.
+	</div>
+</body>
+</html>

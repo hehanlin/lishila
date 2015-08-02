@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<head>
+<link rel="stylesheet" href="<?php echo HMTPLPATH; ?>/css/bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo HMTPLPATH; ?>/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css"href="<?php echo HMTPLPATH; ?>/css/base.css">
+<link rel="stylesheet" type="text/css" href="<?php echo HMTPLPATH; ?>/css/icon-font/iconfont.css">
+<script src="<?php echo HMTPLPATH; ?>/js/base.js" type="text/javascript"></script>
+<script src="<?php echo HMTPLPATH; ?>/js/jquery-1.11.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo HMTPLPATH; ?>/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo HMTPLPATH; ?>/js/unslider.js"></script>
+</head>
+<body>
+	<div class="nav navbar-fixed-top">
+		<div class="back-btn iconfont" onclick="history.go(-1)">&#xe675;</div>
+		<div class="catagory-title">
+			活动详情
+		</div>
+		<div class="my-btn" onclick="window.location = '<?php echo site_url('Q_home/index') ?>'">
+			<ul>
+				<li class="iconfont">&#xe605;</li>
+				<li>搜索</li>
+			</ul>
+		</div>
+		<div class="my-btn" onclick="window.location = '<?php echo site_url('Q_home/index') ?>'">
+			<ul>
+				<li class="iconfont">&#xe607;</li>
+				<li>首页</li>
+			</ul>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div id="top" class="top"></div>
+		<div class="cover">
+			<ul>
+				<li class="details-cover"><img src="<?php echo base_url('data/uploads').'/'.$active['img'] ?>"/></li>
+			</ul>
+			<ul>
+				<li class="pull-left act-cover">
+					<i><?php echo $shop['truename'] ?></i>
+					<i><?php echo $active['name'] ?></i>
+				</li>
+			</ul>
+		</div>
+		<div class="shop-info">
+			<div class="price">
+				<ul>
+					<li class="pull-left"><?php echo $active['now_price'] ?><i>元<del><?php echo $active['old_price'] ?>元</del></i></li>
+					<li class="pull-left" onclick="<?php echo $active['alink'] ?>">立即预定</li>
+				</ul>
+			</div>
+			<div class="contacts">
+				<ul class="pull-left">
+					<li>地址：<?php echo $shop['address']; ?></li>
+					<li>联系电话：<?php echo $shop['tel']; ?></li>					
+				</ul>
+				<ul class="pull-right">
+					<li onclick="window.location = 'tel:<?php echo $shop['tel'] ?>'"><i class="iconfont call">&#xe61c;</i>联系商家</li>
+				</ul>
+			</div>
+			<div class="title">
+				套餐
+			</div>
+			<div class="act-detail-info">
+				<?php echo $active['package'] ?>
+			</div>
+			<div class="title">购买须知</div>
+				<?php echo $active['desc'] ?>
+		</div>
+	</div>
+	<div class="gotop iconfont"><a href="#top">&#xe63a;</a></div>
+	<div class="copyrights">
+		&copy;2015,0358.la,All rights Reserved.
+	</div>
+</body>
+</html>
